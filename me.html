@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     
     <!-- Useful meta tags -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -22,11 +22,7 @@
     <title>Myth-Maker | Личный сайт веб-разработчкиа</title>
     <link rel="shortcut icon" href="https://media.discordapp.net/attachments/791410370199552043/799648888444682250/unknown.png" type="image/x-icon">
 </head>
-<div class="fonne">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
-        <path fill="#242424" fill-opacity="1" d="M0,0L720,160L1440,0L1440,320L720,320L0,320Z"></path>
-    </svg>
-</div>
+
 
 
 <body>
@@ -112,17 +108,25 @@
                     <a href="#ex1" class="prof__arr"><i class="fas fa-angle-double-down"></i></a>
                 </div>
             
-            </div>        </section>
+            </div>
+            <div class="fonne">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
+                    <path fill="#242424" fill-opacity="1" d="M0,0L720,160L1440,0L1440,320L720,320L0,320Z"></path>
+                </svg>
+            </div>        
+        </section>
 
         <div class="fon">
             <div class="container">
                 <div class="layer__fon"></div>
             </div>
         
-        </div>        <main class="main">
+        </div>        
+        <main class="main">
             
             
             <section id="ex1" class="section">
+                
                 <div class="container__reviews">
                     <div class="section_header">
                         <h1 class="section__subtitle" data-aos="fade-up">ОБО МНЕ</h1>
@@ -399,59 +403,8 @@
     <!-- JS -->
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            // Global settings:
-            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-            initClassName: 'aos-init', // class applied after initialization
-            animatedClassName: 'aos-animate', // class applied on animation
-            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-
-            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-            offset: 150, // offset (in px) from the original trigger point
-            delay: 0, // values from 0 to 3000, with step 50ms
-            duration: 800, // values from 0 to 3000, with step 50ms
-            easing: 'ease', // default easing for AOS animations
-            once: false, // whether animation should happen only once - while scrolling down
-            mirror: false, // whether elements should animate out while scrolling past them
-            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-        });
-
-    </script>
-    <script>
-        $('.menu-btn').on('click', function(e) {
-            e.preventDefault();
-            $(this).toggleClass('menu-btn_active');
-            $('.menu-nav').toggleClass('menu-nav_active');
-        });
-
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("#menu").on("click", "a", function(event) {
-                //отменяем стандартную обработку нажатия по ссылке
-                event.preventDefault();
-
-                //забираем идентификатор бока с атрибута href
-                var id = $(this).attr('href'),
-
-                    //узнаем высоту от начала страницы до блока на который ссылается якорь
-                    top = $(id).offset().top;
-
-                //анимируем переход на расстояние - top за 1500 мс
-                $('body,html').animate({
-                    scrollTop: top
-                }, 1200);
-            });
-        });
-
-    </script>
+  
+    <script src="./assets/js/app.js"></script>
 
 
 

@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     
     <!-- Useful meta tags -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -22,11 +22,7 @@
     <title>Myth-Maker | Личный сайт веб-разработчкиа</title>
     <link rel="shortcut icon" href="https://media.discordapp.net/attachments/791410370199552043/799648888444682250/unknown.png" type="image/x-icon">
 </head>
-<div class="fonne">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
-        <path fill="#242424" fill-opacity="1" d="M0,0L720,160L1440,0L1440,320L720,320L0,320Z"></path>
-    </svg>
-</div>
+
 
 
 <body>
@@ -50,7 +46,6 @@
     </div>
     
     
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script type="text/javascript">
             $(window).on('load', function() {
                 var $preloader = $('#p_prldr'),
@@ -112,7 +107,13 @@
                     <a href="#ex1" class="prof__arr"><i class="fas fa-angle-double-down"></i></a>
                 </div>
             
-            </div>        </section>
+            </div>
+            <div class="fonne">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
+                    <path fill="#242424" fill-opacity="1" d="M0,0L720,160L1440,0L1440,320L720,320L0,320Z"></path>
+                </svg>
+            </div>        
+        </section>
 
         <div class="fon">
             <div class="container">
@@ -234,26 +235,26 @@
             
                     <div class="footer__section" data-aos="zoom-in-down">
                         <aside class="box__footer">
-                            <form action="telegram.php" class="subscribe_inner" name="Form" method="POST">
+                            <form id="post" class="subscribe_inner" name="Form" method="POST">
                                 <div class="register_item">
-                                    <!-- Hidden Required Fields -->
-                                    <input type="hidden" name="project_name" value="Myth Maker">
-                                    <input type="hidden" name="admin_email" value="bayawe4603@vu38.com">
-                                    <input type="hidden" name="form_subject" value="Form footer">
-                                    <!-- END Hidden Required Fields -->
                                     <div class="comment">
                                         <input id="formName" class="subscribe_input _req" type="text" name="name" placeholder="Ваше имя" />
+                                        <span class="dot"></span>
                                     </div>
                                     <div class="comment">
-                                        <input id="formEmail" class="subscribe_input _req _email" type="email" name="email" placeholder="Ваш email" />
+                                        <input id="formEmail" class="subscribe_input _req _email" name="email" placeholder="Ваш email" />
+                                        <span class="dot"></span>
                                     </div>
                                     <div class="comment">
                                         <textarea id="formText" class="subscribe_input-otptavka _req" type="text" name="massage" placeholder="Ваше сообщение"></textarea>
+                                        <span class="dot"></span>
                                     </div>
             
                                 </div>
                                 <div class="form__footer">
-                                    <input class="btn btn-search" type="submit" value="Отправить"/>
+                                    
+                                    <button type="submit" class="btn btn-search formBtn" name="button" id="send"><span id='time'>Отправить</span></button>
+                                    
                                 </div>
                             </form>
             
@@ -295,89 +296,6 @@
             
                 </div>
             </footer>
-            
-            <script>
-                $('.btn__slide').on('click', function() {
-                    $('.slide__item').toggleClass('slide__item-origin'); // код для первого клика       
-                    $('.slider__text').toggleClass('slider__text-origin');
-                    $('.btn__slide--close').toggleClass('btn__slide-origin'); // код для первого клика       
-                    // код для первого клика       
-                });
-                $('.btn__slide--close').on('click', function() {
-                    $('.slide__item').toggleClass('slide__item-origin'); // код для первого клика
-                    $('.slider__text').toggleClass('slider__text-origin'); // код для первого клика
-                    $('.btn__slide--close').toggleClass('btn__slide-origin');
-                });
-            
-            </script>
-            <script>
-                function font_size_determination($block, height, width, font_size) {
-                    $block.css('.subscribe_input-otptavka', font_size);
-                    var block_height = $block.height();
-                    var block_width = $block.width();
-                    if (block_height > height || block_width > width) {
-                        font_size = font_size * 0.9;
-                        return font_size_determination($block, height, width, font_size);
-                    } else {
-                        return font_size;
-                    }
-                }
-            
-            </script>
-            <script>
-                "use strict"
-            
-                document.addEventListener('DOMContentLoaded', function() {
-                    const form = document.getElementById('form');
-                    form.addEventListener('submit', formSend);
-            
-                    async function formSend(e) {
-                        e.preventDefault();
-            
-                        let errpr = formValidate(form);
-                    }
-            
-                    function formValidate(form) {
-                        let error = 0;
-                        let formReq = document.querySelectorAll('._req');
-            
-                        for (let index = 0; index < formReq.length; index++) {
-                            const input = formReq[index];
-                            formRemoveError(input);
-                            if (input.classList.contains('_email')) {
-                                if (emailTest(input)) {
-                                    formAddError(input);
-                                    error++;
-                                }
-                            } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-                                formAddError(input);
-                                error++;
-                            } else {
-                                if (input.value === '') {
-                                    formAddError(input);
-                                    error++;
-                                }
-                            }
-                        }
-                    }
-            
-                    function formAddError(input) {
-                        input.parentElement.classList.add('._error');
-                        input.classList.add('._error');
-                    }
-            
-                    function formRemoveError(input) {
-                        input.parentElement.classList.remove('._error');
-                        input.classList.remove('._error');
-                    }
-                    //Функция проверки email
-                    function emailTest(input) {
-                        return !/^\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-                    }
-                })
-            
-            </script>
-            
         </main>
 
     </div>
@@ -385,60 +303,8 @@
     <!-- JS -->
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            // Global settings:
-            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-            initClassName: 'aos-init', // class applied after initialization
-            animatedClassName: 'aos-animate', // class applied on animation
-            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
 
-
-            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-            offset: 150, // offset (in px) from the original trigger point
-            delay: 0, // values from 0 to 3000, with step 50ms
-            duration: 800, // values from 0 to 3000, with step 50ms
-            easing: 'ease', // default easing for AOS animations
-            once: false, // whether animation should happen only once - while scrolling down
-            mirror: false, // whether elements should animate out while scrolling past them
-            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-        });
-
-    </script>
-    <script>
-        $('.menu-btn').on('click', function(e) {
-            e.preventDefault();
-            $(this).toggleClass('menu-btn_active');
-            $('.menu-nav').toggleClass('menu-nav_active');
-        });
-
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("#menu").on("click", "a", function(event) {
-                //отменяем стандартную обработку нажатия по ссылке
-                event.preventDefault();
-
-                //забираем идентификатор бока с атрибута href
-                var id = $(this).attr('href'),
-
-                    //узнаем высоту от начала страницы до блока на который ссылается якорь
-                    top = $(id).offset().top;
-
-                //анимируем переход на расстояние - top за 1500 мс
-                $('body,html').animate({
-                    scrollTop: top
-                }, 1200);
-            });
-        });
-
-    </script>
-
+    <script src="./assets/js/app.js"></script>
 
 
 
