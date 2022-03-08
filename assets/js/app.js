@@ -49,7 +49,7 @@ AOS.init({});
             function time(){
             document.getElementById("time").innerHTML = i;//визуальный счетчик
             i--;//уменьшение счетчика
-            if (i < 0) location.href = "telegram.php";//редирект
+            if (i < 0) location.href = "thank-you.html";//редирект
             }
             time();
             setInterval(time, 1000);
@@ -61,9 +61,9 @@ AOS.init({});
           
           // Проверка имени    
           var el_l = $("#formName");
-          if ( el_l.val().length < 4 ) {
+          if ( el_l.val().length < 3 ) {
             var v_login = true;
-            el_l.after('<span class="text-error for-login">Логин должен быть больше 3 символов</span>');
+            el_l.after('<span class="text-error for-login">Имя должно быть больше 2 символов</span>');
           } 
           $("#formName").toggleClass('error', v_login );
           
@@ -80,7 +80,7 @@ AOS.init({});
           }
           $("#formEmail").toggleClass('error', v_email );
           
-          // Проверка паролей
+          // Проверка текста
           
           var el_p1 = $("#formText");
           
